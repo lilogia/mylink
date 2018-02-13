@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Graypage</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Quicksand" />
+  <link rel="stylesheet" type="text/css" href="../../css/mysite.css">
+</head>
+<script>
+function browseTo() {
+  var tid = document.getElementById('ticketid');
+  //window.location.href = "https://jira.intgdc.com/browse/" + id.value
+
+  //document.getElementsByTagName('form').action = "https://jira.intgdc.com/browse/" + id.value;
+  //document.location.href = "https://jira.intgdc.com/browse/" + tid.value;
+  window.open("https://jira.intgdc.com/browse/" + tid.value, "_blank");
+  return;
+}
+
+function toGrayPage(url) {
+  //  alert(form.server.value + element.href);
+  var srv = document.forms[0].elements["server"].value;
+  if (document.forms[0].elements["server"].selectedIndex == 0) {
+      srv += ":" + document.forms[0].elements["port"].value;
+  }
+  window.open(srv + url, "_blank");
+  return false;
+}
+
+function toGrayPageID(url) {
+  //  alert(form.server.value + element.href);
+  var srv = document.forms[0].elements["server"].value;
+  if (document.forms[0].elements["server"].selectedIndex == 0) {
+      srv += ":" + document.forms[0].elements["port"].value;
+  }
+  window.open(srv + "/gdc/md/" +
+              document.forms[0].elements["prjID"].value + url, "_blank");
+  return false;
+}
+</script>
+<body>
+
+<form action="" method="get" target="_blank">
+  <input type="text" id="ticketid" name="ticketid" value="Enter ticket id" onfocus="this.value = 'CL-11849';this.select();">
+  <input type="button" name="submit" value="See it" onclick="browseTo()"/>
+  <br><br>
+
+<ul>Backend Server: <select name="server">  
+    <option value="https://client-demo.na.intgdc.com">client-demo.na.intgdc.com</option>
+    <option value="https://linhr149.na.intgdc.com" >linhr149.na.intgdc.com</option>  
+    <option value="https://staging3.intgdc.com">staging3</option>
+    <option value="https://staging2.intgdc.com" selected >staging2</option>
+    <option value="https://staging.intgdc.com" >staging</option>
+    <option value="https://secure.gooddata.com">secure</option>
+    <option value="https://analytics.zendesk.com">zendesk</option>
+    <option value="https://zebroids.intgdc.com">zebroids</option>
+</select>
+ <input type="text" name="port" size="10" value="50016" onfocus="this.value='';"/>
+  <li><a href="#" onclick="return toGrayPage('/gdc/internal/account/profile/featureFlags')">Feature flag</a> [fiscalCalendarEnabled]</li>
+  <li><a href="#" onclick="return toGrayPage('/gdc/projects')">Create Project</a></li>
+  <li><a href="#" onclick="return toGrayPage('/projectTemplates')">Project Templates</a></li>
+  <li><a href="#" onclick="return toGrayPage('/gdc/account/login')">Login</a></li>
+  <li><a href="#" onclick="return toGrayPage('/gdc/uploads')">WebDAV uploaded resources</a></li><br>
+  <li>
+    <ul>Project ID: <input type="text" name="prjID" size="40" value="ukaqwlnaalqkyl3t62rqas2dmxa366xc" onfocus="this.value='';"/>
+      <li><a href="#" onclick="return toGrayPageID('/')" title="ldm/manager2">Metadata service for project </a></li>
+      <li><a href="#" onclick="return toGrayPageID('/search')" title="ldm/manager2">Search text in project </a></li>
+      <li><a href="#" onclick="return toGrayPageID('/ldm/manage2')" title="ldm/manager2">Execute MAQL DDL script</a></li>
+      <li><a href="#" onclick="return toGrayPageID('/datedimension/pull')">Upload Custom Dimension</a></li>
+    </ul>
+  </li>
+  <li><a href="" target="_blank"></a></li>
+</ul>
+
+</form>
+</body>
+</html>

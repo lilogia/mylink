@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Jira</title>
+</head>
+<script>
+function browseTo() {
+  var tid = document.getElementById('ticketid');
+  //window.location.href = "https://jira.intgdc.com/browse/" + id.value
+
+  //document.getElementsByTagName('form').action = "https://jira.intgdc.com/browse/" + id.value;
+  //document.location.href = "https://jira.intgdc.com/browse/" + tid.value;
+  window.open("https://jira.intgdc.com/browse/" + tid.value, "_blank");
+  return;
+}
+</script>
+<body>
+
+<form action="" method="get" target="_blank">
+  <input type="text" id="ticketid" name="ticketid" value="Enter ticket id" onfocus="this.value = 'CL-11849';this.select();">
+  <input type="button" name="submit" value="See it" onclick="browseTo()"/>
+</form>
+
+
+<!-- -->
+<li><a href="file:///Users/honggialinh/Work/kanban/linh-kanban/index.html#/kanban/LinhDaily" target="_blank">Linh Kanban</a></li>
+<li><a href="https://drive.google.com/drive/u/1/folders/0BwhdzerZkMU5X3UwUUhxTXNHYjA" target="_blank">Quick</a>&nbsp;&gt;&gt;&nbsp;
+  <a href="https://docs.google.com/document/d/1fwYdJ6M2Ewd-AmZKk44-C8dKxTyCE_caa4AnBYvFcC4/edit" target="_blank">TODO list</a></li>
+
+  <li><a href="https://docs.google.com/document/d/1YuRCJuUS5jqY0JSs0jhwKd2W10hyCmvcyIl4ewB83ao/edit#" target="_blank">Mekong Bi-weekkly Sync</a></li>
+
+</body>
+</html>

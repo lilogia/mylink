@@ -1,0 +1,39 @@
+body {
+  background-color: #d7dee8;
+  font-family: Quicksand;
+  font-size: 12px;
+}
+
+ul {
+  font-weight: bolder;
+  font-size: 14px;
+  color: #1256b7;
+}
+
+li {
+  font-size: 11px;
+}
+
+section {
+  position: absolute;
+  /*
+  border-style: solid;
+  border-color: #1256b7;
+  border-width: thin;
+  */
+  top: 5px;
+}
+
+section#col2 {
+  left: 20%;
+
+}
+
+section#col3 {
+  left: 40%;
+}
+
+section#col4 {
+  left: 75%;
+}
+
